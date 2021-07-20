@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		75307D8726A6F74A00E50CCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75307D8526A6F74A00E50CCC /* Main.storyboard */; };
 		75307D8926A6F74E00E50CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75307D8826A6F74E00E50CCC /* Assets.xcassets */; };
 		75307D8C26A6F74E00E50CCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75307D8A26A6F74E00E50CCC /* LaunchScreen.storyboard */; };
+		75307D9626A6F96900E50CCC /* CHTCollectionViewWaterfallLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 75307D9526A6F96900E50CCC /* CHTCollectionViewWaterfallLayout */; };
+		75307D9926A6FA3500E50CCC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75307D9826A6FA3500E50CCC /* ImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		75307D8826A6F74E00E50CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75307D8B26A6F74E00E50CCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75307D8D26A6F74E00E50CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75307D9826A6FA3500E50CCC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75307D9626A6F96900E50CCC /* CHTCollectionViewWaterfallLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +63,7 @@
 				75307D7F26A6F74A00E50CCC /* AppDelegate.swift */,
 				75307D8126A6F74A00E50CCC /* SceneDelegate.swift */,
 				75307D8326A6F74A00E50CCC /* ViewController.swift */,
+				75307D9826A6FA3500E50CCC /* ImageCollectionViewCell.swift */,
 				75307D8526A6F74A00E50CCC /* Main.storyboard */,
 				75307D8826A6F74E00E50CCC /* Assets.xcassets */,
 				75307D8A26A6F74E00E50CCC /* LaunchScreen.storyboard */,
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = "waterfall-collectionViewe";
+			packageProductDependencies = (
+				75307D9526A6F96900E50CCC /* CHTCollectionViewWaterfallLayout */,
+			);
 			productName = "waterfall-collectionViewe";
 			productReference = 75307D7C26A6F74A00E50CCC /* waterfall-collectionViewe.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +118,9 @@
 				Base,
 			);
 			mainGroup = 75307D7326A6F74A00E50CCC;
+			packageReferences = (
+				75307D9426A6F96900E50CCC /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */,
+			);
 			productRefGroup = 75307D7D26A6F74A00E50CCC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,6 +150,7 @@
 			files = (
 				75307D8426A6F74A00E50CCC /* ViewController.swift in Sources */,
 				75307D8026A6F74A00E50CCC /* AppDelegate.swift in Sources */,
+				75307D9926A6FA3500E50CCC /* ImageCollectionViewCell.swift in Sources */,
 				75307D8226A6F74A00E50CCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +351,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		75307D9426A6F96900E50CCC /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chiahsien/CHTCollectionViewWaterfallLayout.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		75307D9526A6F96900E50CCC /* CHTCollectionViewWaterfallLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75307D9426A6F96900E50CCC /* XCRemoteSwiftPackageReference "CHTCollectionViewWaterfallLayout" */;
+			productName = CHTCollectionViewWaterfallLayout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 75307D7426A6F74A00E50CCC /* Project object */;
 }
