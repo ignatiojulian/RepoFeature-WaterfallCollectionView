@@ -10,23 +10,25 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
-    private let collectionView: UICollectionView = {
-        let layout = CHTCollectionViewWaterfallLayout()
-        layout.itemRenderDirection = .leftToRight
-        layout.columnCount = 2
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
-        
-        return collectionView
-    }()
+    @IBOutlet var collectionView: UICollectionView!
+    
+    private var model = [Models]()
+    
+    //    private let collectionView: UICollectionView = {
+//        let layout = CHTCollectionViewWaterfallLayout()
+//        layout.itemRenderDirection = .leftToRight
+//        layout.columnCount = 2
+//
+//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
+//
+//        return collectionView
+//    }()
     
     struct Models {
         let imageName: String
         let height: CGFloat
     }
-    
-    private var model = [Models]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +40,27 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             )
         }
         
-        view.addSubview(collectionView)
+//        view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        let layout = CHTCollectionViewWaterfallLayout()
+        layout.itemRenderDirection = .leftToRight
+        layout.columnCount = 2
+        
+        collectionView.alwaysBounceVertical = true
+        collectionView.collectionViewLayout = layout
+        
+        let viewNib = UINib(nibName: "ImageCollectionViewCell", bundle: nil)
+        collectionView.register(viewNib, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        collectionView.frame = view.bounds
-    }
+    
+//
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        collectionView.frame = view.bounds
+//    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -64,7 +78,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             fatalError()
         }
         
-        cell.configure(image: UIImage(named: model[indexPath.row].imageName))
+        
+        cell.configure(image: (UIImage(named: model[indexPath.row].imageName) ?? UIImage(systemName: "photo"))!)
         
         return cell
     }

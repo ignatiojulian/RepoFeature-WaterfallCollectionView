@@ -8,35 +8,30 @@
 import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var label: UILabel!
+    @IBOutlet var imageView: UIImageView!
+    
     static let identifier = "ImageCollectionViewCell"
+    static let nib = "ImageCollectionViewCell"
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupAppearance()
+    }
+    
+    func setupAppearance() {
+        bgView.backgroundColor = .gray
+        bgView.contentMode = .scaleAspectFit
+        bgView.layer.cornerRadius = 20
+        
         imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        contentView.addSubview(imageView)
-        contentView.clipsToBounds = true
+        imageView.layer.cornerRadius = 20
     }
     
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView.frame = contentView.bounds
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imageView.image = nil
-    }
-    
-    func configure(image: UIImage?) {
+    func configure(image: UIImage) {
         imageView.image = image
+        label.text = "Test test"
     }
 }
